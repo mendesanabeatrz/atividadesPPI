@@ -1,0 +1,223 @@
+<!-- ✅ Atividade 1 - Estrutura Básica HTML -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura Básica HTML</title>
+</head>
+<body>
+    <!-- Autor: Romulo Beninca | Data: 2025-12-04 -->
+    <h1>Diferença entre Internet e Web</h1>
+    <p>
+        A Internet é uma rede global de computadores interconectados, permitindo a comunicação e o compartilhamento de dados. Já a Web é um serviço da Internet, que consiste em um conjunto de páginas interligadas acessadas por meio de navegadores.
+    </p>
+    
+    <div>
+        <h2>A História da Internet e da Web</h2>
+        <p><strong>Década de 1960:</strong> A Internet começou como ARPANET, um projeto do governo dos EUA para comunicação entre universidades e órgãos militares.</p>
+        <p><strong>Década de 1990:</strong> A World Wide Web foi criada por Tim Berners-Lee, revolucionando a forma de acessar e compartilhar informações.</p>
+
+        <hr>
+        <h3>Principais Marcos</h3>
+        <ul>
+            <li>1991: A Web se torna pública.</li>
+            <li>1994: Surge o primeiro navegador gráfico.</li>
+            <li>2000: Explosão do uso de blogs e mídias sociais.</li>
+        </ul>
+
+        <h3>Links e Referências</h3>
+        <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a>
+        <br>
+        <img src="https://via.placeholder.com/300x150" alt="Imagem representativa da Internet">
+    </div>
+</body>
+</html>
+
+<!-- ✅ Atividade 2 - Protocolo HTTP -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo HTTP</title>
+</head>
+<body>
+    <h1>O que é o Protocolo HTTP?</h1>
+    <p>
+        O HTTP (HyperText Transfer Protocol) é um protocolo de comunicação utilizado na Web. Ele define como as requisições e respostas entre cliente (navegador) e servidor devem ser realizadas.
+    </p>
+    <p>
+        Exemplo de requisição HTTP:
+        <br><code>GET /index.html HTTP/1.1</code>
+        <br>Este comando solicita o arquivo "index.html" ao servidor.
+    </p>
+
+    <h2>Campos de um Request</h2>
+    <ul>
+        <li><strong>Method:</strong> Tipo de requisição (GET, POST, etc.)</li>
+        <li><strong>URL:</strong> O caminho do recurso solicitado.</li>
+        <li><strong>Headers:</strong> Informações adicionais como tipo de conteúdo, cookies, etc.</li>
+    </ul>
+
+    <h2>Exemplo de Resposta</h2>
+    <p>
+        <code>HTTP/1.1 200 OK</code><br>
+        <code>Content-Type: text/html</code><br>
+        <code>Content-Length: 1234</code>
+    </p>
+
+    <img src="https://via.placeholder.com/400x200" alt="Exemplo de requisição HTTP">
+</body>
+</html>
+
+<!-- ✅ Atividade 3 - Tabela de Estados -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Estados</title>
+</head>
+<body>
+    <h1>Tabela de Estados</h1>
+    <table border="1">
+        <caption>Estados do Brasil</caption>
+        <thead>
+            <tr>
+                <th>Índice</th>
+                <th>Região</th>
+                <th>Nome</th>
+                <th>Sigla</th>
+                <th>Capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td rowspan="3">Norte</td>
+                <td>Acre</td>
+                <td>AC</td>
+                <td>Rio Branco</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Amazônia</td>
+                <td>AM</td>
+                <td>Manaus</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Pará</td>
+                <td>PA</td>
+                <td>Belém</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <a href="https://pt.wikipedia.org/wiki/Acre" target="_blank">Acre - Wikipedia</a>
+</body>
+</html>
+
+<!-- ✅ Atividade 4 - Currículo HTML -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo</title>
+</head>
+<body>
+    <h1>Currículo de João Silva</h1>
+    
+    <img src="https://via.placeholder.com/150" alt="Foto de João Silva">
+    
+    <p><strong>Contato:</strong> <a href="mailto:joao.silva@email.com">joao.silva@email.com</a> | <a href="tel:+5511999999999">+55 11 99999-9999</a></p>
+    
+    <section id="formacao">
+        <h2>Formação Acadêmica</h2>
+        <article>
+            <h3>Graduado em Ciência da Computação</h3>
+            <p><em>Universidade X - 2018</em></p>
+        </article>
+    </section>
+    
+    <section id="experiencia">
+        <h2>Experiência Profissional</h2>
+        <div>
+            <p><strong>Desenvolvedor Web</strong> | <mark>Empresa Y</mark></p>
+            <p><em>2019-2021</em></p>
+        </div>
+    </section>
+    
+    <h3>Habilidades Técnicas</h3>
+    <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>React, Node.js</li>
+    </ul>
+    
+    <h3>Grade de Horários</h3>
+    <table border="1">
+        <tr>
+            <th>Matéria</th>
+            <th>Segunda</th>
+            <th>Terça</th>
+        </tr>
+        <tr>
+            <td>Programação</td>
+            <td>08:00 - 10:00</td>
+            <td>10:00 - 12:00</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<!-- ✅ Atividade 5 - Formulário de Contato -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+</head>
+<body>
+    <h1>Formulário de Contato</h1>
+    <form action="#" method="POST">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome"><br><br>
+
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" name="email" required placeholder="Digite seu e-mail"><br><br>
+
+        <label for="assunto">Assunto:</label><br>
+        <input type="text" id="assunto" name="assunto" placeholder="Digite o assunto"><br><br>
+
+        <label for="estado">Estado:</label><br>
+        <select id="estado" name="estado">
+            <option value="SP">São Paulo</option>
+            <option value="RJ">Rio de Janeiro</option>
+        </select><br><br>
+
+        <label for="mensagem">Mensagem:</label><br>
+        <textarea id="mensagem" name="mensagem" rows="4" cols="50" placeholder="Escreva sua mensagem"></textarea><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <br>
+    <a href="4_curriculo.html">Voltar para o currículo</a>
+</body>
+</html>
+
+<!-- ✅ Atividade 6 - Arquivo CSS Externo -->
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #0077cc;
+}
+
+table

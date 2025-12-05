@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Exercícios - Programação para Internet</title>
+</head>
+<body>
+    <!-- 1. O que é JavaScript? -->
+    <h1 id="titulo">O que é JavaScript?</h1>
+    <p id="explicacao">
+        O JavaScript foi criado para dar interatividade às páginas web. Ele permite a execução de scripts no navegador, mas também pode ser executado no servidor. O conceito de "sandbox" no navegador impede que o JavaScript acesse certos recursos do sistema.
+    </p>
+    <script>
+        console.log("JavaScript está funcionando!");
+        alert("Bem-vindo ao JavaScript!");
+        document.getElementById("explicacao").innerHTML += "<br>A hora atual é: " + new Date().toLocaleTimeString();
+    </script>
+    
+    <br><br>
+    <!-- 2. Tipos de Variáveis e Operadores -->
+    <button onclick="mostrarTipos()">Mostrar Tipos</button>
+    <p id="pnumero"></p>
+    <p id="pstring"></p>
+
+    <script>
+        function mostrarTipos() {
+            let numero = 42;
+            let texto = "Olá, mundo!";
+            let booleano = true;
+            let indefinido;
+            let nulo = null;
+            let objeto = { nome: "Objeto" };
+            let array = [1, 2, 3];
+
+            document.getElementById("pnumero").innerText = "Tipo de número: " + typeof numero;
+            document.getElementById("pstring").innerText = "Tipo de string: " + typeof texto;
+
+            console.log("Resultado de operações:");
+            console.log("String + Number: ", texto + numero);
+            console.log("Boolean * Number: ", booleano * numero);
+        }
+    </script>
+
+    <br><br>
+    <!-- 3. Cálculo de IMC -->
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="number" id="peso" placeholder="Peso (kg)">
+    <input type="number" id="altura" placeholder="Altura (m)">
+    <button onclick="calcularIMC()">Calcular</button>
+
+    <p id="resultadoIMC"></p>
+    <p id="classificacao"></p>
+    <img id="imgPerfil" src="" alt="Perfil de Saúde" />
+
+    <script>
+        function calcularIMC() {
+            let nome = document.getElementById("nome").value;
+            let peso = parseFloat(document.getElementById("peso").value);
+            let altura = parseFloat(document.getElementById("altura").value);
+            
+            if (!nome || !peso || !altura) {
+                alert("Por favor, preencha todos os campos!");
+                return;
+            }
+
+            let imc = peso / (altura * altura);
+            document.getElementById("resultadoIMC").innerText = "IMC de " + nome + ": " + imc.toFixed(2);
+
+            let classificacao = "";
+            if (imc < 18.5) classificacao = "Abaixo do peso";
+            else if (imc < 24.9) classificacao = "Peso normal";
+            else if (imc < 29.9) classificacao = "Sobrepeso";
+            else if (imc < 34.9) classificacao = "Obesidade grau 1";
+            else if (imc < 39.9) classificacao = "Obesidade grau 2";
+            else classificacao = "Obesidade grau 3";
+
+            document.getElementById("classificacao").innerText = "Classificação: " + classificacao;
+
+            switch (Math.floor(imc)) {
+                case 18:
+                    document.getElementById("imgPerfil").src = "imgs/magro.png";
+                    break;
+                case 24:
+                    document.getElementById("imgPerfil").src = "imgs/normal.png";
+                    break;
+                case 28:
+                    document.getElementById("imgPerfil").src = "imgs/sobrepeso.png";
+                    break;
+                default:
+                    document.getElementById("imgPerfil").src = "imgs/obeso1.png";
+            }
+        }
+    </script>
+
+    <br><br>
+    <!-- 4. Gerador de Números Aleatórios -->
+    <h1>Sorteio de Números</h1>
+    <button onclick="sortear()">Sortear</button>
+    <p id="resultado">Resultado: </p>
+    <input type="number" id="min" placeholder="Valor Mínimo">
+    <input type="number" id="max" placeholder="Valor Máximo">
+
+    <script>
+        function sortear() {
+            let min = parseInt(document.getElementById("min").value);
+            let max = parseInt(document.getElementById("max").value);
+            let sorteio = Math.floor(Math.random() * (max - min + 1)) + min;
+            document.getElementById("resultado").innerText = "Número sorteado: " + sorteio;
+        }
+    </script>
+
+    <br><br>
+    <!-- 5. Números Primos em um Intervalo -->
+    <input type="number" id="inicio" placeholder="Início">
+    <input type="number" id="fim" placeholder="Fim">
+    <button onclick="verificarPrimos()">Verificar</button>
+    <div id="resultadoPrimos"></div>
+
+    <script>
+        function verificarPrimos() {
+            let inicio = parseInt(document.getElementById("inicio").value);
+            let fim = parseInt(document.getElementById("fim").value);
+            let primos = [];
+
+            for (let i = inicio; i <= fim; i++) {
+                if (isPrimo(i)) {
+                    primos.push(i);
+                }
+            }
+            document.getElementById("resultadoPrimos").innerText = "Números primos: " + primos.join(", ");
+        }
+
+        function isPrimo(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i < num; i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+    </script>
+
+    <br><br>
+    <!-- 6. Verificador de Palíndromos -->
+    <input type="text" id="palavra" placeholder="Digite uma palavra">
+    <button onclick="verificarPalindromo()">Verificar</button>
+    <p id="resultadoPalindromo"></p>
+
+    <script>
+        function verificarPalindromo() {
+            let palavra = document.getElementById("palavra").value;
+            let reverso = palavra.split("").reverse().join("");
+            let resultado = palavra === reverso ? "É um palíndromo!" : "Não é um palíndromo.";
+            document.getElementById("resultadoPalindromo").innerText = resultado;
+        }
+    </script>
+
+    <br><br>
+    <!-- 7. Mudança de Cor de Fundo com Clique -->
+    <h1>Mudança de Cor de Fundo</h1>
+    <button onclick="mudarCorFundo()">Mudar Cor de Fundo</button>
+
+    <script>
+        function mudarCorFundo() {
+            document.body.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        }
+    </script>
+
+    <br><br>
+    <!-- 8. Alteração de Cores com Tecla de Espaço -->
+    <h1>Pressione a Barra de Espaço</h1>
+    <p>Sempre que pressionar a tecla de espaço, as cores dos elementos irão mudar.</p>
+
+    <script>
+        window.addEventListener("keydown", function (event) {
+            if (event.code === "Space") {
+                document.body.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                document.querySelector("h1").style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+            }
+        });
+    </script>
+
+    <br><br>
+    <!-- 9. Calculadora Aritmética -->
+    <h1>Calculadora Simples</h1>
+    <input type="number" id="numero1" placeholder="Número 1">
+    <input type="number" id="numero2" placeholder="Número 2">
+    <button onclick="calcular('+')">+</button>
+    <button onclick="calcular('-')">-</button>
+    <button onclick="calcular('*')">*</button>
+    <button onclick="calcular('/')">/</button>
+
+    <p id="resultadoCalculadora"></p>
+
+    <script>
+        function calcular(operacao) {
+            let num1 = parseFloat(document.getElementById("numero1").value);
+            let num2 = parseFloat(document.getElementById("numero2").value);
+            let resultado;
+
+            if (operacao === '+') resultado = num1 + num2;
+            if (operacao === '-') resultado = num1 - num2;
+            if (operacao === '*') resultado = num1 * num2;
+            if (operacao === '/') resultado = num1 / num2;
+
+            document.getElementById("resultadoCalculadora").innerText = "Resultado: " + resultado;
+        }
+    </script>
+
+    <br><br>
+    <!-- 10. Explorando Eventos em JavaScript -->
+    <button id="alertButton">Clique aqui</button>
+    <input type="text" id="textInput" placeholder="Digite algo">
+    <div id="hoverDiv">Passe o mouse aqui</div>
+    <select id="colorSelect">
+        <option value="">Escolha uma cor</option>
+        <option value="blue">Azul</option>
+        <option value="green">Verde</option>
+        <option value="red">Vermelho</option>
+    </select>
+
+    <script>
+        document.getElementById("alertButton").addEventListener("click", function() {
+            alert("Você clicou no botão!");
+        });
+
+        document.getElementById("textInput").addEventListener("keydown", function() {
+            console.log("Tecla pressionada:", event.key);
+        });
+
+        document.getElementById("textInput").addEventListener("focus", function() {
+            document.getElementById("textInput").style.backgroundColor = "yellow";
+        });
+
+        document.getElementById("textInput").addEventListener("blur", function() {
+            document.getElementById("textInput").style.backgroundColor = "";
+        });
+
+        document.getElementById("hoverDiv").addEventListener("mouseover", function() {
+            document.getElementById("hoverDiv").style.backgroundColor = "lightblue";
+        });
+
+        document.getElementById("hoverDiv").addEventListener("mouseout", function() {
+            document.getElementById("hoverDiv").style.backgroundColor = "";
+        });
+
+        document.getElementById("colorSelect").addEventListener("change", function() {
+            document.body.style.backgroundColor = this.value;
+        });
+    </script>
+
+    <br><br>
+    <!-- 11. Salvando dados no Local Storage -->
+    <input type="text" id="nameInput" placeholder="Digite seu nome">
+    <button id="saveButton">Salvar</button>
+    <p id="greeting"></p>
+
+    <script>
+        document.getElementById("saveButton").addEventListener("click", function() {
+            let name = document.getElementById("nameInput").value;
+            localStorage.setItem("name", name);
+            document.getElementById("greeting").innerText = "Olá, " + name + "!";
+        });
+
+        window.onload = function() {
+            let storedName = localStorage.getItem("name");
+            if (storedName) {
+                document.getElementById("greeting").innerText = "Olá, " + storedName + "!";
+            }
+        };
+    </script>
+
+    <br><br>
+    <!-- 12. Desenhando com Canvas -->
+    <h1>Desenho com Canvas</h1>
+    <canvas id="meuCanvas" width="400" height="300" style="border:1px solid #000;"></canvas>
+
+    <script>
+        let canvas = document.getElementById("meuCanvas");
+        let ctx = canvas.getContext("2d");
+
+        // Retângulo Azul
+        ctx.fillStyle = "blue";
+        ctx.fillRect(50, 50, 100, 50);
+
+        // Círculo Vermelho
+        ctx.beginPath();
+        ctx.arc(200, 150, 30, 0, 2 * Math.PI);
+        ctx.fillStyle = "red";
+        ctx.fill();
+
+        // Texto no Canvas
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "black";
+        ctx.fillText("Canvas!", 120, 250);
+    </script>
+</body>
+</html>

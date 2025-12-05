@@ -1,0 +1,161 @@
+<!-- ✅ Atividade 1: O que é uma regra CSS? -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo de Regra CSS</title>
+    <style>
+        p {
+            color: blue;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <p>Este é um exemplo de parágrafo estilizado com CSS.</p>
+</body>
+</html>
+
+<!-- ✅ Atividade 2: Criação de uma página HTML com título e parágrafos com estilos -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página com Lorem Ipsum</title>
+    <style>
+        p {
+            font-size: 18px;
+        }
+        .fonte1 { color: red; }
+        .fonte2 { color: green; }
+        .fonte3 { color: blue; }
+        .destaque { background-color: yellow; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de Página com Estilos</h1>
+    <p class="fonte1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p class="fonte2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p class="fonte3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p><span class="destaque">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit.</p>
+</body>
+</html>
+
+<!-- ✅ Atividade 3: Como podemos incluir CSS em documentos HTML? -->
+
+<!-- CSS Inline -->
+<p style="color: blue; font-size: 18px;">Texto estilizado com CSS inline</p>
+
+<!-- CSS Interno -->
+<style>
+    p { color: blue; font-size: 18px; }
+</style>
+
+<!-- CSS Externo -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- ✅ Atividade 4: Explicação de regras CSS com seletor e exemplo -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>   
+   <title>Exemplo Especificidade de Seletores</title>
+   <style>
+      li { color: red; }
+      .churras { color: green; }
+      .fruta { color: gray; }
+      li + li.churras { color: black; }
+      .churras[draggable="true"] { color: magenta; }
+      #lip1, #lip2, #lip3 { color: blue; }
+      #lip3.fruta { color: orange; }
+      ol > li.churras#lip5 { color: purple; }
+   </style>
+</head>
+<body>   
+   <ol>
+      <li id="lip0">Abacaxi</li>
+      <li class="fruta">Melão</li>
+      <li id="lip2" class="fruta">Pera</li>
+      <li id="lip3" class="fruta">Uva</li>
+      <li id="lip4" class="fruta">Maçã</li>
+      <li class="churras">Carne</li>
+      <li class="churras">Linguiça</li>
+      <li id="lip7" class="churras" draggable="true">Pão de alho</li>
+   </ol>   
+</body>
+</html>
+
+<!-- ✅ Atividade 6 - Display e Position -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo Display</title>
+    <style>
+        .container { display: block; background-color: lightgray; padding: 20px; }
+        .item { display: inline-block; margin: 10px; background-color: lightblue; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+</body>
+</html>
+
+<!-- ✅ Atividade 8 - Animação de Barquinho no Mar com CSS -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Barquinho no Mar</title>
+    <style>
+        body { margin: 0; padding: 0; background: #87CEEB; }
+        .mar { position: absolute; bottom: 0; width: 100%; height: 100px; background: #1E90FF; animation: ondas 5s infinite linear; }
+        @keyframes ondas { 0% { transform: translateX(0); } 100% { transform: translateX(100%); } }
+        
+        .barquinho {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            width: 100px;
+            height: 50px;
+            background: url('https://via.placeholder.com/100x50?text=Barco');
+            background-size: cover;
+            animation: balanco 3s ease-in-out infinite;
+        }
+        
+        @keyframes balanco {
+            0% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+            100% { transform: rotate(-10deg); }
+        }
+        
+        .nuvem {
+            position: absolute;
+            top: 20px;
+            width: 150px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            animation: nuvem 10s linear infinite;
+        }
+
+        @keyframes nuvem {
+            0% { left: -200px; }
+            100% { left: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="mar"></div>
+    <div class="barquinho"></div>
+    <div class="nuvem"></div>
+</body>
+</html>
